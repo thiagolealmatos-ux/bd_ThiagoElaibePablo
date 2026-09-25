@@ -1,15 +1,16 @@
 # O caso do trio
 
 **Integrantes:**
-
+Pablo, Thiago e Elaibe
 **Turma:**
-
+1-C
 ---
 
 ## Em uma frase
 
 > A barbearia precisa saber quais clientes agendaram quais serviços com quais barbeiros, em que data e horário, e qual foi o valor cobrado.
->
+>//Diagrama barbearia draw.io: https://app.diagrams.net/#G1MOgr_JxmPNpdRKytuCOV7ECrIfaQwXN6#%7B%22pageId%22%3A%22u5BAMprT-ehXDETmkFol%22%7D
+
 > Exemplo: a secretaria precisa saber qual aluno está inscrito em qual
 > modalidade esportiva, desde quando, e se a inscrição ainda vale.
 
