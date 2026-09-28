@@ -9,7 +9,8 @@ Pablo, Thiago e Elaibe
 ## Em uma frase
 
 > A barbearia precisa saber quais clientes agendaram quais serviços com quais barbeiros, em que data e horário, e qual foi o valor cobrado.
->//Diagrama barbearia draw.io: https://app.diagrams.net/#G1MOgr_JxmPNpdRKytuCOV7ECrIfaQwXN6#%7B%22pageId%22%3A%22u5BAMprT-ehXDETmkFol%22%7D
+
+>Diagrama barbearia draw.io: https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&dark=auto#G151MquW8rRkC3jvG7NOyZ4AAGreXalDUW
 
 > Exemplo: a secretaria precisa saber qual aluno está inscrito em qual
 > modalidade esportiva, desde quando, e se a inscrição ainda vale.
@@ -22,11 +23,10 @@ de um. Liste aqui, um por linha, com dois ou três atributos de cada:
 - CLIENTE — nome, telefone, email
 - BARBEIRO — nome, especialidade, telefone
 - SERVICO — nome, descricao, preco
-- AGENDAMENTO — data, horario, valor
 
 ## O N:N com atributo próprio
 
 Qual é o par de entidades que se cruza muitos-para-muitos, e qual dado nasce
 **do encontro** entre elas (e não de nenhum dos dois lados)?
 
-- CLIENTE e SERVICO — o encontro gera data, horario e valor.
+- CLIENTE, BARBEIRO e SERVICO se relacionam por meio de AGENDAMENTO. O encontro gera data, horario e valor.
