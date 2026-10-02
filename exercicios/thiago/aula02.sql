@@ -14,37 +14,30 @@ CREATE TABLE LIVRO (
     ano INTEGER,
     exemplares INTEGER NOT NULL DEFAULT 1
 );
+INSERT INTO LIVRO (id, titulo, autor, ano)
+VALUES (1, 'Clube da Luta', 'Chuck Palahniuk', 1996);
 
 INSERT INTO LIVRO (id, titulo, autor, ano, exemplares)
-VALUES (1, 'Dom Casmurro', 'Machado de Assis', 1899, 3);
-
-INSERT INTO LIVRO (id, titulo, autor, ano, exemplares)
-VALUES (2, 'O Hobbit', 'J. R. R. Tolkien', 1937, 2);
-
-
+VALUES (2, 'It: A Coisa', 'Stephen King', 1986, 2);
 
 -- ex2
-
 
 CREATE TABLE LEITOR (
     id INTEGER PRIMARY KEY,
     nome TEXT NOT NULL
 );
-
 INSERT INTO LEITOR (id, nome)
 VALUES (1, 'Thiago');
 
 INSERT INTO LEITOR (id, nome)
-VALUES (2, 'Elaibe');
+VALUES (2, 'Pedro');
 
 INSERT INTO LEITOR (id, nome)
-VALUES (3, 'Pablo');
+VALUES (3, 'Rafael');
 
 ALTER TABLE LEITOR ADD COLUMN telefone TEXT;
 
 SELECT * FROM LEITOR;
-
-
 
 -- ex3
 
@@ -52,7 +45,6 @@ CREATE TABLE EMPRESTIMO (
     id INTEGER PRIMARY KEY,
     id_livro INTEGER NOT NULL
 );
-
 INSERT INTO EMPRESTIMO (id, id_livro)
 VALUES (1, 1);
 
@@ -60,7 +52,7 @@ INSERT INTO EMPRESTIMO (id, id_livro)
 VALUES (2, 2);
 
 ALTER TABLE EMPRESTIMO
-ADD COLUMN situacao TEXT NOT NULL DEFAULT 'aberto';
+ADD COLUMN situacao TEXT NOT NULL DEFAULT 'nao informado';
 
 -- ex4
 
@@ -68,29 +60,25 @@ CREATE TABLE EDITORA (
     id INTEGER PRIMARY KEY,
     nm TEXT
 );
-
 INSERT INTO EDITORA (id, nm)
-VALUES (1, 'Editora Exemplo');
+VALUES (1, 'Editora Record');
 
 ALTER TABLE EDITORA RENAME COLUMN nm TO nome;
 
-
 -- ex5
-
 
 CREATE TABLE RASCUNHO (
     id INTEGER PRIMARY KEY,
     texto TEXT
 );
+INSERT INTO RASCUNHO (id, texto)
+VALUES (1, 'Primeiro rascunho');
 
 INSERT INTO RASCUNHO (id, texto)
-VALUES (1, 'Primeiro texto');
+VALUES (2, 'Segundo rascunho');
 
 INSERT INTO RASCUNHO (id, texto)
-VALUES (2, 'Segundo texto');
-
-INSERT INTO RASCUNHO (id, texto)
-VALUES (3, 'Terceiro texto');
+VALUES (3, 'Terceiro rascunho');
 
 DELETE FROM RASCUNHO;
 
@@ -98,43 +86,42 @@ SELECT * FROM RASCUNHO;
 
 DROP TABLE RASCUNHO;
 
-
 -- ex6
 
 CREATE TABLE LIVRO (
     id INTEGER PRIMARY KEY,
-    titulo TEXT NOT NULL
+    titulo TEXT
 );
 
 CREATE TABLE LEITOR (
     id INTEGER PRIMARY KEY,
-    nome TEXT NOT NULL
+    nome TEXT
 );
 
 CREATE TABLE EMPRESTIMO (
-    id_leitor INTEGER NOT NULL,
-    id_livro INTEGER NOT NULL,
-    data_saida TEXT NOT NULL,
-    data_volta TEXT,
+    id_leitor INTEGER,
+    id_livro INTEGER,
+    data_saida DATE,
+    data_volta DATE,
     PRIMARY KEY (id_leitor, id_livro, data_saida),
     FOREIGN KEY (id_leitor) REFERENCES LEITOR(id),
     FOREIGN KEY (id_livro) REFERENCES LIVRO(id)
 );
 
 INSERT INTO LIVRO (id, titulo)
-VALUES (1, 'Dom Casmurro');
+VALUES (1, 'Clube da Luta');
 
 INSERT INTO LIVRO (id, titulo)
-VALUES (2, 'O Hobbit');
+VALUES (2, 'It: A Coisa');
 
 INSERT INTO LEITOR (id, nome)
 VALUES (1, 'Thiago');
 
 INSERT INTO LEITOR (id, nome)
-VALUES (2, 'Elaibe');
+VALUES (2, 'Pedro');
 
 INSERT INTO EMPRESTIMO (id_leitor, id_livro, data_saida, data_volta)
-VALUES (1, 1, '2026-09-20', NULL);
+VALUES (1, 1, '2026-09-22', '2026-09-25');
 
 INSERT INTO EMPRESTIMO (id_leitor, id_livro, data_saida, data_volta)
-VALUES (1, 2, '2026-09-20', NULL);
+VALUES (1, 1, '2026-09-23', NULL);
