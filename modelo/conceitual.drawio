@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2026-10-01T22:30:00.000Z" agent="Mozilla/5.0" version="24.7.17">
+  <diagram id="barbearia" name="Barbearia">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cliente" value="&lt;b&gt;CLIENTE&lt;/b&gt;&lt;hr&gt;id (PK)&lt;br&gt;nome&lt;br&gt;telefone&lt;br&gt;email" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="210" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="barbeiro" value="&lt;b&gt;BARBEIRO&lt;/b&gt;&lt;hr&gt;id (PK)&lt;br&gt;nome&lt;br&gt;especialidade&lt;br&gt;telefone" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="480" y="60" width="220" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="servico" value="&lt;b&gt;SERVICO&lt;/b&gt;&lt;hr&gt;id (PK)&lt;br&gt;nome&lt;br&gt;descricao&lt;br&gt;preco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="900" y="260" width="210" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="agendamento" value="&lt;b&gt;AGENDAMENTO&lt;/b&gt;&lt;hr&gt;id (PK)&lt;br&gt;id_cliente (FK)&lt;br&gt;id_barbeiro (FK)&lt;br&gt;id_servico (FK)&lt;br&gt;data&lt;br&gt;horario&lt;br&gt;valor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="465" y="300" width="250" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" edge="1" parent="1" source="cliente" target="agendamento">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" edge="1" parent="1" source="barbeiro" target="agendamento">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" edge="1" parent="1" source="servico" target="agendamento">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

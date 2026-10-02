@@ -18,10 +18,10 @@ projeto vão estar errados junto.
 O caso de vocês precisa de **pelo menos 4 tabelas** e **pelo menos um N:N com
 atributo próprio na associativa**.
 
-Atributo próprio quer dizer um dado que não é de nenhum dos dois lados. A data
-de uma inscrição não é do aluno nem da modalidade: é da inscrição. A nota de uma
-avaliação não é do aluno nem da prova. Se a associativa de vocês só tem as duas
-chaves e mais nada, o caso ainda não está pronto.
+Atributo próprio quer dizer um dado que não é de nenhuma das entidades
+relacionadas. A data de uma inscrição não é do aluno nem da modalidade: é da
+inscrição. Neste caso, `data`, `horario` e `valor` pertencem ao agendamento, que
+associa CLIENTE, BARBEIRO e SERVICO.
 
 ## `logico.md`: como escrever
 
