@@ -15,12 +15,13 @@ VALUES
 PRAGMA foreign_keys = ON;
 
 -- Tentativa que não funciona:
-INSERT INTO ALUNO (id, nome, id_turma)
-VALUES (11, 'Lucas', 99);
+--INSERT INTO ALUNO (id, nome, id_turma)
+--VALUES (11, 'Lucas', 99);
+-- Erro: FOREIGN KEY constraint failed
 
 -- Versão correta:
 INSERT INTO ALUNO (id, nome, id_turma)
-VALUES (11, 'Lucas', 1);
+VALUES (13, 'Lucas', 1);
 
 -- ex3
 
@@ -43,12 +44,12 @@ FROM ALUNO
 WHERE id = 10;
 
 UPDATE ALUNO
--- UPDATE errado:
-UPDATE ALUNO SET id_turma = 2;
--- Afetaria os 10 alunos da escola.
-
 SET id_turma = 2
 WHERE id = 10;
+
+-- UPDATE errado:
+--UPDATE ALUNO SET id_turma = 2;
+-- Afetaria os 10 alunos da escola.
 
 -- ex5
 
@@ -63,7 +64,7 @@ FROM ALUNO
 WHERE id = 10;
 
 -- Tentativa de apagar a turma 1:
-DELETE FROM TURMA WHERE id = 1;
+--DELETE FROM TURMA WHERE id = 1;
 -- Erro: FOREIGN KEY constraint failed
 -- Motivo: existem alunos vinculados a essa turma.
 
@@ -99,7 +100,6 @@ CREATE TABLE FILHO_B (
     ON DELETE CASCADE
 );
 
-
 CREATE TABLE PAI_C (
     id INTEGER PRIMARY KEY
 );
@@ -110,7 +110,6 @@ CREATE TABLE FILHO_C (
     FOREIGN KEY (id_pai) REFERENCES PAI_C(id)
     ON DELETE SET NULL
 );
-
 
 INSERT INTO PAI_A (id) VALUES (1);
 INSERT INTO PAI_B (id) VALUES (1);
@@ -125,20 +124,18 @@ VALUES (1, 1), (2, 1);
 INSERT INTO FILHO_C (id, id_pai)
 VALUES (1, 1), (2, 1);
 
-SELECT * FROM PAI_A WHERE id = 1;
+-- DELETE FROM PAI_A WHERE id = 1;
+-- Erro: FOREIGN KEY constraint failed.
 
-SELECT * FROM PAI_B WHERE id = 1;
+DELETE FROM PAI_B WHERE id = 1;
 
-DELETE FROM PAI_B
-WHERE id = 1;
-
-SELECT * FROM PAI_C WHERE id = 1;
-
-DELETE FROM PAI_C
-WHERE id = 1;
+DELETE FROM PAI_C WHERE id = 1;
 
 SELECT * FROM FILHO_A;
 
 SELECT * FROM FILHO_B;
 
 SELECT * FROM FILHO_C;
+
+-- Usaria RESTRICT entre ALUNO e INSCRICAO,
+-- pois impede apagar um aluno que possui inscrições.
